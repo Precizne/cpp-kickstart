@@ -1,4 +1,4 @@
-Checks: 'clang-analyzer-*,modernize-*,performance-*,readability-*'
+Checks: 'clang-analyzer-*,performance-*'
 WarningsAsErrors: ''
 HeaderFilterRegex: '.*'
 FormatStyle: file

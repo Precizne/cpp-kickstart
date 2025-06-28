@@ -1,8 +1,7 @@
-#include <bits/stdc++.h>
-#include <fmt/core.h>
-using namespace std;
+// Import necessary headers
 
-auto main() -> int {
-    fmt::print("Hello, {}!\n", "world");
+int main() {
+    // Your main function logic goes here
+
     return 0;
 }

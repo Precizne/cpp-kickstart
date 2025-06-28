@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(cpp_full_template LANGUAGES CXX)
+project(cpp-kickstart LANGUAGES CXX)
 
 # C++ config
 set(CMAKE_CXX_STANDARD 26)
@@ -55,12 +55,12 @@ add_compile_options(-g -O0 -fno-omit-frame-pointer)
     message(STATUS "No sanitizers enabled.")
   endif()
 elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
-  add_compile_options(-Ofast -march=native -DNDEBUG)
+  add_compile_options(-O3 -ffast-math -march=native -DNDEBUG)
 endif()
 
 # Dependencies
-find_package(fmt REQUIRED)
+find_package(<libray-name> REQUIRED)
 
 # Target
 add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE fmt::fmt)
+target_link_libraries(main PRIVATE <namespace>::<target-name>)

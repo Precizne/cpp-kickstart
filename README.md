@@ -38,19 +38,16 @@ CMakeDeps
 conan profile detect --force
 
 # 2. Install dependencies
-conan install . --output-folder=build --build=missing --profile=default
+conan install . --output-folder=build --build=missing -s build_type=<build-type>
 
-# 3.1 Configure the project (Debug build with sanitizers)
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
-
-# 3.2 Configure the project (Release build without sanitizers)
-cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DUSE_SANITIZERS=OFF
+# 3 Configure the project
+cmake -S . -B build/<build-type> -G Ninja -DCMAKE_TOOLCHAIN_FILE=build/<build-type>/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=<build-type> -DSANITIZER_SET=default
 
 # 4. Build with Ninja
-cmake --build build -j
+cmake --build build/<build-type> -j
 
 # 5. Run
-./build/main
+./build/<build-type>/main
 ```
 
 ## 🧪 Runtime Debugging with `valgrind`
