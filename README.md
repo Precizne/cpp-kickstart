@@ -44,7 +44,7 @@ conan install . --output-folder=build --build=missing -s build_type=<build-type>
 cmake -S . -B build/<build-type> -G Ninja -DCMAKE_TOOLCHAIN_FILE=build/<build-type>/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=<build-type> -DSANITIZER_SET=default
 
 # 4. Build with Ninja
-cmake --build build/<build-type> -j
+cmake --build build/<build-type>
 
 # 5. Run
 ./build/<build-type>/main
