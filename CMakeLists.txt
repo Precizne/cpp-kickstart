@@ -58,9 +58,13 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Release")
   add_compile_options(-O3 -ffast-math -march=native -DNDEBUG)
 endif()
 
-# Dependencies
+# Find Dependencies
 find_package(<libray-name> REQUIRED)
 
+# Add Sources
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
+
 # Target
-add_executable(main src/main.cpp)
+add_executable(main {$SOURCES})
+target_include_directories(main PRIVATE include)
 target_link_libraries(main PRIVATE <namespace>::<target-name>)
